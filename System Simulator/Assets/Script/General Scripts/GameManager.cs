@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [BoxGroup("Quick Keys")]
+    public GameObject _characterStatistic;
 
     [BoxGroup("Attributes")]
     public float _health, _defense, _attack, _mana; // _attack total damage done with normal attack, _mana total castable
@@ -26,9 +28,11 @@ public class GameManager : MonoBehaviour
 
     public void Update() {
         _time.text = $"{_hour:00}:{_minute:00}{_timeOfDay}";
-        //$"{_days:00}/{_months:00}/{_years}";
 
         TimeManager();
+        if(Input.GetKeyDown(KeyCode.C)){
+            _characterStatistic.SetActive(!_characterStatistic.activeInHierarchy);
+        }
     }
 
     public void TimeManager() {

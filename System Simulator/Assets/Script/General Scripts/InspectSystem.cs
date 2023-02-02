@@ -13,13 +13,14 @@ public class InspectSystem : MonoBehaviour
         _mapState.SetActive(false);
         _mapTools.SetActive(false);
         _mapMore.SetActive(false);
+        _mapInspection.SetActive(false);
     }
 
     public void InspectMap(Capital _map){
-        _mapInspection.gameObject.SetActive(true);
-        _mapTexts.transform.GetChild(0).GetComponent<TMP_Text>().text = $"Name: {_map._capitalName}";
-        _mapTexts.transform.GetChild(1).GetComponent<TMP_Text>().text = $"Rarity: {_map._capitalRarity}";
-        _mapTexts.transform.GetChild(2).GetComponent<TMP_Text>().text = $"Prestige: {_map._capitalPrestige}";
+        _mapInspection.gameObject.SetActive(!_mapInspection.activeInHierarchy);
+        //_mapTexts.transform.GetChild(0).GetComponent<TMP_Text>().text = $"Name: {_map._capitalName}";
+        //_mapTexts.transform.GetChild(1).GetComponent<TMP_Text>().text = $"Rarity: {_map._capitalRarity}";
+        //_mapTexts.transform.GetChild(2).GetComponent<TMP_Text>().text = $"Prestige: {_map._capitalPrestige}";
     }
 
     public void Specific(string Type){

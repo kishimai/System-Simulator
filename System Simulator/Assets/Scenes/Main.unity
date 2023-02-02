@@ -207,7 +207,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 104400159}
   m_Direction: 2
   m_Value: 0.9999998
-  m_Size: 0.7011514
+  m_Size: 0.70115143
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -446,8 +446,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1918819051}
   m_HandleRect: {fileID: 1918819050}
   m_Direction: 2
-  m_Value: 0.9999998
-  m_Size: 0.34362337
+  m_Value: 1
+  m_Size: 0.3436234
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1682,7 +1682,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1292138746}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.75052893
+  m_Size: 0.75052905
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2042,6 +2042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f67001f417adf84693e795a501b5d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterStatistic: {fileID: 763155352}
   _health: 0
   _defense: 0
   _attack: 0
@@ -2320,6 +2321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2dcec82e7a16054394b291da0a6496c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inspectSystem: {fileID: 1212309149}
   _camera: {fileID: 963194225}
   _worldParent: {fileID: 916196619}
   total_road: 0
@@ -4236,7 +4238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 221.49997, y: 87.1}
+  m_AnchoredPosition: {x: 276.9, y: 161.8}
   m_SizeDelta: {x: 216.3062, y: 121.7935}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1212309145
@@ -4246,7 +4248,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212309143}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cd8fe4d091abc44f80738a35da9bb89, type: 3}
   m_Name: 
@@ -7197,7 +7199,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1720685730}
   m_Direction: 2
   m_Value: 0.9999996
-  m_Size: 0.75052893
+  m_Size: 0.75052905
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

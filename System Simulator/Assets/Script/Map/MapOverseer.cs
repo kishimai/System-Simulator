@@ -5,6 +5,8 @@ using Sirenix.OdinInspector;
 
 public class MapOverseer : MonoBehaviour
 {
+    public InspectSystem _inspectSystem;
+    [Space]
     public GameObject _camera;
     public GameObject _worldParent;
     [Space]
@@ -62,7 +64,7 @@ public class MapOverseer : MonoBehaviour
                 GameObject Capital = Instantiate(_capitalNormal);
 
                 Capital.transform.parent = _worldParent.transform;
-                Capital.AddComponent<Capital>()._manager = this;
+                Capital.AddComponent<Capital>()._inspectSystem = _inspectSystem;
 
                 Capital.transform.rotation = Quaternion.Euler(0.0f, 0.0f , Random.Range(0.0f, 360)); // Randomized Rotation
                 Capital.transform.position = GetPosition(Capital);
@@ -87,7 +89,8 @@ public class MapOverseer : MonoBehaviour
         GameObject Capital = Instantiate(_capitalNormal);
 
         Capital.transform.parent = _worldParent.transform;
-        Capital.AddComponent<Capital>()._manager = this;
+        Capital.AddComponent<Capital>();
+        Capital.GetComponent<Capital>()._inspectSystem = _inspectSystem;
 
         Capital.transform.rotation = Quaternion.Euler(0.0f, 0.0f , Random.Range(0.0f, 360)); // Randomized Rotation
         Capital.transform.position = GetPosition(Capital);

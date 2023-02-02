@@ -16,7 +16,7 @@ public class Capital : MonoBehaviour
     [Space]
     public bool _origin = false; // meaning the beginning of the generation or the most developed capital.
     [Space]
-    public MapOverseer _manager;
+    public InspectSystem _inspectSystem;
     public List<GameObject> _nearCapitals = new List<GameObject>();
     public List<GameObject> _farCapitals = new List<GameObject>();
 
@@ -54,13 +54,13 @@ public class Capital : MonoBehaviour
             int _dun = Random.Range(4, 5);
         } else if(GetChance(6)){
             _capitalRarity = "Mythical";
-            int _loc = 10;
-            int _dun = 10;
+            int _loc = Random.Range(10, 13);
+            int _dun = Random.Range(10, 13);
         }
     }
 
-    public void Hover(bool type){
-        Debug.Log("Hover:" + type);
+    private void OnMouseDown() {
+        Debug.Log("Clicked:" + _capitalName);
     }
 
     public bool GetChance(int num){ // A random generation of a number and checking if the percentile is higher out of 100
