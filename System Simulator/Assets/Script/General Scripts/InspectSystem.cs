@@ -5,13 +5,10 @@ using TMPro;
 
 public class InspectSystem : MonoBehaviour
 {
-    public GameObject _mapInspection, _mapState, _mapContent, _mapTools, _mapMore;
+    public GameObject _mapInspection, _mapMore;
     public GameObject _mapTexts;
 
     private void Start() {
-        _mapContent.SetActive(false);
-        _mapState.SetActive(false);
-        _mapTools.SetActive(false);
         _mapMore.SetActive(false);
         _mapInspection.SetActive(false);
     }
@@ -31,23 +28,11 @@ public class InspectSystem : MonoBehaviour
 
     public void DisableMap(){
         _mapInspection.gameObject.SetActive(false);
-        _mapContent.SetActive(false);
-        _mapState.SetActive(false);
-        _mapTools.SetActive(false);
         _mapMore.SetActive(false);
     }
 
     public void Specific(string Type){
         switch(Type){
-            case "State":
-                _mapState.SetActive(!_mapState.activeInHierarchy);
-                return;
-            case "Content":
-                _mapContent.SetActive(!_mapContent.activeInHierarchy);
-                return;
-            case "Tools":
-                _mapTools.SetActive(!_mapTools.activeInHierarchy);
-                return;
             case "More":
                 _mapMore.SetActive(!_mapMore.activeInHierarchy);
                 return;
