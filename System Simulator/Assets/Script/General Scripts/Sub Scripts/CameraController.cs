@@ -14,13 +14,16 @@ public class CameraController : MonoBehaviour
     public bool _enableMovement = true;
     [Space]
     public RectTransform DetectLayer;
+    public InspectSystem _inspectSystem;
 
     void Update(){
         if(_enableMovement){
-            if(this.GetComponent<Camera>().orthographicSize > minZoom && Input.mouseScrollDelta.y > 0 || Input.GetKey(KeyCode.Q)){ // negative -1
+            if(Input.GetKey(KeyCode.Q)){ // negative -1
                 this.GetComponent<Camera>().orthographicSize += -1;
-            } else if(this.GetComponent<Camera>().orthographicSize < maxZoom && Input.mouseScrollDelta.y < 0 || Input.GetKey(KeyCode.E)){ // positive +1
+                _inspectSystem.DisableMap();
+            } else if(Input.GetKey(KeyCode.E)){ // positive +1
                 this.GetComponent<Camera>().orthographicSize += 1;
+                _inspectSystem.DisableMap();
             }
         }
 
@@ -38,15 +41,19 @@ public class CameraController : MonoBehaviour
         if(_enableMovement){
             if(Input.GetKey(KeyCode.W)){
                 transform.Translate(Vector2.up * walkingSpeed, Space.World);
+                _inspectSystem.DisableMap();
             }
             if(Input.GetKey(KeyCode.S)){
                 transform.Translate(Vector2.down * walkingSpeed, Space.World);
+                _inspectSystem.DisableMap();
             }
             if(Input.GetKey(KeyCode.D)){
                 transform.Translate(Vector2.right * walkingSpeed, Space.World);
+                _inspectSystem.DisableMap();
             }
             if(Input.GetKey(KeyCode.A)){
                 transform.Translate(Vector2.left * walkingSpeed, Space.World);
+                _inspectSystem.DisableMap();
             }
         }
     }

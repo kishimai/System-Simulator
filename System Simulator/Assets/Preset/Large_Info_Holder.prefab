@@ -176,8 +176,8 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -5.5445, y: 30.3}
   m_SizeDelta: {x: 216.3062, y: 171.8117}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -264,7 +264,6 @@ MonoBehaviour:
   transformRect: {fileID: 0}
   canvas: {fileID: 0}
   WindowCanvas: {fileID: 0}
-  _manager: {fileID: 0}
 --- !u!1 &5993408656406394216
 GameObject:
   m_ObjectHideFlags: 0

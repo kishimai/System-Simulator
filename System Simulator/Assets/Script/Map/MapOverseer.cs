@@ -40,6 +40,7 @@ public class MapOverseer : MonoBehaviour
     public float _villageChance; // Chances out of 100
 
 
+
     public void Start(){ // Starts the generation
         _worldSize = Random.Range(600, 1000);
         _upperWorldSize = new Vector2(_worldSize, 0); // Upper center
@@ -67,13 +68,17 @@ public class MapOverseer : MonoBehaviour
                 Capital.AddComponent<Capital>()._inspectSystem = _inspectSystem;
 
                 Capital.transform.rotation = Quaternion.Euler(0.0f, 0.0f , Random.Range(0.0f, 360)); // Randomized Rotation
-                Capital.transform.position = GetPosition(Capital);
+
+                Vector3 position = GetPosition(Capital);
+                position = position + Random.onUnitSphere * _CapitalDis;
+                Capital.transform.position = position;
             }
 
         } else{
             GameObject originCapital = Instantiate(_capitalLarge);
 
             originCapital.AddComponent<Capital>()._origin = true;
+            originCapital.GetComponent<Capital>()._inspectSystem = _inspectSystem;
 
             originCapital.transform.position = GetPosition(originCapital);
             _camera.transform.position = new Vector3(originCapital.transform.position.x, originCapital.transform.position.y, -10);

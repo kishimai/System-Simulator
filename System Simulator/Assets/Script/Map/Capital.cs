@@ -20,6 +20,10 @@ public class Capital : MonoBehaviour
     public List<GameObject> _nearCapitals = new List<GameObject>();
     public List<GameObject> _farCapitals = new List<GameObject>();
 
+    // CONTENTS
+    int _loc;
+    int _dun;
+
     public void Start() { //  Updates the Info
 
         #region  Collecting Collider Data
@@ -42,25 +46,28 @@ public class Capital : MonoBehaviour
         //Generating Capital Rarity
         if(GetChance(50)){
             _capitalRarity = "Normal";
-            int _loc = Random.Range(2, 5);
-            int _dun = Random.Range(1, 3);
+            _loc = Random.Range(2, 5);
+            _dun = Random.Range(1, 3);
         } else if(GetChance(30)){
             _capitalRarity = "Poor";
-            int _loc = Random.Range(1, 3);
-            int _dun = Random.Range(1, 3);
+            _loc = Random.Range(1, 3);
+            _dun = Random.Range(1, 3);
         } else if(GetChance(10)){
             _capitalRarity = "Rare";
-            int _loc = Random.Range(3, 7);
-            int _dun = Random.Range(4, 5);
+            _loc = Random.Range(3, 7);
+            _dun = Random.Range(4, 5);
         } else if(GetChance(6)){
             _capitalRarity = "Mythical";
-            int _loc = Random.Range(10, 13);
-            int _dun = Random.Range(10, 13);
+            _loc = Random.Range(10, 13);
+            _dun = Random.Range(10, 13);
         }
+
+        _capitalName = NameGenerator.GenerateName();
     }
 
     private void OnMouseDown() {
         Debug.Log("Clicked:" + _capitalName);
+        _inspectSystem.InspectMap(this);
     }
 
     public bool GetChance(int num){ // A random generation of a number and checking if the percentile is higher out of 100
@@ -73,4 +80,33 @@ public class Capital : MonoBehaviour
     }
 
 
+}
+
+static class NameGenerator
+{
+    private static readonly List<string> _prefixes = new List<string>(){
+        "New", "Old", "West", "East", "North", "South"
+    };
+
+    private static readonly List<string> _suffixes = new List<string>(){
+        "ville", "town", "city", "ton", "burg", "haven"
+    };
+
+    public static string GenerateName()
+    {
+        string name;
+
+        if (Random.Range(0, 2) == 0){
+            // Use prefix
+            name = _prefixes[Random.Range(0, _prefixes.Count)];
+        }
+        else{
+            // Use suffix
+            name = _suffixes[Random.Range(0, _suffixes.Count)];
+        }
+
+        name = $"{_prefixes[Random.Range(0, _prefixes.Count)]} {_suffixes[Random.Range(0, _suffixes.Count)]}";
+
+        return name;
+    }
 }

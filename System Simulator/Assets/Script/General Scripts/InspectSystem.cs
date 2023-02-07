@@ -16,11 +16,25 @@ public class InspectSystem : MonoBehaviour
         _mapInspection.SetActive(false);
     }
 
+    private void Update() {
+        if(Input.GetKey(KeyCode.Mouse1) && _mapInspection.activeInHierarchy == true){
+            DisableMap();
+        }
+    }
+
     public void InspectMap(Capital _map){
         _mapInspection.gameObject.SetActive(!_mapInspection.activeInHierarchy);
-        //_mapTexts.transform.GetChild(0).GetComponent<TMP_Text>().text = $"Name: {_map._capitalName}";
-        //_mapTexts.transform.GetChild(1).GetComponent<TMP_Text>().text = $"Rarity: {_map._capitalRarity}";
+        _mapTexts.transform.GetChild(0).GetComponent<TMP_Text>().text = $"Name: {_map._capitalName}";
+        _mapTexts.transform.GetChild(1).GetComponent<TMP_Text>().text = $"Rarity: {_map._capitalRarity}";
         //_mapTexts.transform.GetChild(2).GetComponent<TMP_Text>().text = $"Prestige: {_map._capitalPrestige}";
+    }
+
+    public void DisableMap(){
+        _mapInspection.gameObject.SetActive(false);
+        _mapContent.SetActive(false);
+        _mapState.SetActive(false);
+        _mapTools.SetActive(false);
+        _mapMore.SetActive(false);
     }
 
     public void Specific(string Type){
