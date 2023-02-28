@@ -61,8 +61,6 @@ public class Capital : MonoBehaviour
             _loc = Random.Range(10, 13);
             _dun = Random.Range(10, 13);
         }
-
-        _capitalName = NameGenerator.GenerateName();
     }
 
     private void OnMouseDown() {
@@ -80,33 +78,4 @@ public class Capital : MonoBehaviour
     }
 
 
-}
-
-static class NameGenerator
-{
-    private static readonly List<string> _prefixes = new List<string>(){
-        "New", "Old", "West", "East", "North", "South"
-    };
-
-    private static readonly List<string> _suffixes = new List<string>(){
-        "ville", "town", "city", "ton", "burg", "haven"
-    };
-
-    public static string GenerateName()
-    {
-        string name;
-
-        if (Random.Range(0, 2) == 0){
-            // Use prefix
-            name = _prefixes[Random.Range(0, _prefixes.Count)];
-        }
-        else{
-            // Use suffix
-            name = _suffixes[Random.Range(0, _suffixes.Count)];
-        }
-
-        name = $"{_prefixes[Random.Range(0, _prefixes.Count)]} {_suffixes[Random.Range(0, _suffixes.Count)]}";
-
-        return name;
-    }
 }
